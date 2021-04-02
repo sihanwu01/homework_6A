@@ -13,7 +13,6 @@ function changeDetails(image, title, price) {
 }
 
 function onLoad() {
-    sessionStorage.setItem("cartQty", 0);
 
     var i = localStorage.getItem("image");
     let img = document.getElementById("details-image");
@@ -26,6 +25,12 @@ function onLoad() {
     var p = localStorage.getItem("price");
     let price = document.getElementById("details-price");
     price.innerHTML = p;
+
+    if (parseInt( sessionStorage.getItem( "cartQty" )) == 0) {
+        document.getElementById("cart-display").innerHTML = "Cart";
+    } else {
+        document.getElementById("cart-display").innerHTML = "Cart("+parseInt(sessionStorage.getItem("cartQty"))+")";
+    }
 }
 
 function updateGlazing(glazing) {
@@ -44,13 +49,12 @@ function updateQuantity(qty) {
 
 function addToCart() {
     alert("Successfully Added to Cart!");
-    var qty = parseInt( sessionStorage.getItem( "cartQty" ));
-    sessionStorage.setItem( "cartQty", qty+1 );
-    if (parseInt( sessionStorage.getItem( "cartQty" )) == 0) {
-        document.getElementById("cart-display").innerHTML = "Cart";
-    } else {
-        document.getElementById("cart-display").innerHTML = "Cart("+parseInt( sessionStorage.getItem( "cartQty" ))+")";
+    
+    var qty = 0;
+    if (parseInt( sessionStorage.getItem( "cartQty" ))) {
+        qty = parseInt( sessionStorage.getItem( "cartQty" ));
     }
+    sessionStorage.setItem( "cartQty", qty+1 );
 }
   
 window.onclick = function(event) {
