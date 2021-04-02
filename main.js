@@ -13,6 +13,8 @@ function changeDetails(image, title, price) {
 }
 
 function onLoad() {
+    sessionStorage.setItem("cartQty", 0);
+
     var i = localStorage.getItem("image");
     let img = document.getElementById("details-image");
     img.setAttribute("src", i);
@@ -38,6 +40,17 @@ function updateQuantity(qty) {
     var q = sessionStorage.getItem("option1");
     let option = document.getElementById("qty-dropdown");
     option.innerHTML = q;
+}
+
+function addToCart() {
+    alert("Successfully Added to Cart!");
+    var qty = parseInt( sessionStorage.getItem( "cartQty" ));
+    sessionStorage.setItem( "cartQty", qty+1 );
+    if (parseInt( sessionStorage.getItem( "cartQty" )) == 0) {
+        document.getElementById("cart-display").innerHTML = "Cart";
+    } else {
+        document.getElementById("cart-display").innerHTML = "Cart("+parseInt( sessionStorage.getItem( "cartQty" ))+")";
+    }
 }
   
 window.onclick = function(event) {
