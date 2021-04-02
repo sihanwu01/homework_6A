@@ -4,7 +4,7 @@
 <head>
   <!--Link to CSS file-->
   <link rel="stylesheet" media="all" type="text/css" href="styles.css"/>
-
+  <script src="main.js"></script>
   <title>Product Details</title>
 </head>
 
@@ -37,13 +37,13 @@
         <!--Left Column-->
         <div class="left-column">
           <!--image source: https://flic.kr/p/aw5Rcs-->
-          <img src="images/image1.jpg" alt="original flavor cinnamon bun">
+          <img id="details-image" src="images/image1.jpg" alt="original flavor cinnamon bun">
         </div> 
         <!-- Right Column -->
         <div class="right-column">
           <!-- Product Description -->
           <div class="product-description">
-            <h1>Original Cinnamon Roll</h1>
+            <h1 id="details-title">Original Cinnamon Roll</h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
           </div>
           <!--adapted from https://www.w3schools.com/howto/howto_js_dropdown.asp -->
@@ -51,7 +51,7 @@
             <label for="choose-glazing">
               <h2>Glazing</h2>
             </label>
-            <button class="dropbtn">None</button>
+            <button onclick="glazeOptions()" class="dropbtn">None</button>
             <div id="choose-glazing" class="dropdown-content">
               <a>Sugar-Milk</a>
               <a>Vanilla-Milk</a>
@@ -62,7 +62,7 @@
             <label for="choose-quantity">
               <h2>Quantity</h2>
             </label>
-            <button class="dropbtn">1</button>
+            <button onclick="quantityOptions()" class="dropbtn">1</button>
             <div id="choose-quantity" class="dropdown-content">
               <a>3</a>
               <a>6</a>
@@ -70,7 +70,7 @@
             </div>
           </div>
           <div id="add">
-            <h3>$3.67</h3>
+            <h3 id="details-price">$3.67</h3>
             <a href="" class="button add">Add to Cart</a>
           </div>
         </div>
