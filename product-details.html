@@ -8,7 +8,7 @@
   <title>Product Details</title>
 </head>
 
-<body>
+<body onload="onLoad()">
   <!--website container-->
   <div id="container">
     <div id="top_row">
@@ -51,22 +51,22 @@
             <label for="choose-glazing">
               <h2>Glazing</h2>
             </label>
-            <button onclick="glazeOptions()" class="dropbtn">None</button>
+            <button id="glaze-dropdown" onclick="glazeOptions()" class="dropbtn">None</button>
             <div id="choose-glazing" class="dropdown-content">
-              <a>Sugar-Milk</a>
-              <a>Vanilla-Milk</a>
-              <a>Double-Chocolate</a>
+              <a onclick="updateGlazing('Sugar-Milk')">Sugar-Milk</a>
+              <a onclick="updateGlazing('Vanilla-Milk')">Vanilla-Milk</a>
+              <a onclick="updateGlazing('Double-Chocolate')">Double-Chocolate</a>
             </div>
           </div>
           <div class="dropdown">
             <label for="choose-quantity">
               <h2>Quantity</h2>
             </label>
-            <button onclick="quantityOptions()" class="dropbtn">1</button>
+            <button id="qty-dropdown" onclick="quantityOptions()" class="dropbtn">1</button>
             <div id="choose-quantity" class="dropdown-content">
-              <a>3</a>
-              <a>6</a>
-              <a>12</a>
+              <a onclick="updateQuantity(3)">3</a>
+              <a onclick="updateQuantity(6)">6</a>
+              <a onclick="updateQuantity(12)">12</a>
             </div>
           </div>
           <div id="add">

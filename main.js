@@ -7,9 +7,37 @@ function quantityOptions() {
 }
 
 function changeDetails(image, title, price) {
-    document.getElementById("details-image").src=image;
-    document.getElementById("details-title").innerHTML=title;
-    document.getElementById("details-price").innerHTML=price;
+    localStorage.setItem("image", image);
+    localStorage.setItem("title", title);
+    localStorage.setItem("price", price);
+}
+
+function onLoad() {
+    var i = localStorage.getItem("image");
+    let img = document.getElementById("details-image");
+    img.setAttribute("src", i);
+
+    var t = localStorage.getItem("title");
+    let title = document.getElementById("details-title");
+    title.innerHTML = t;
+
+    var p = localStorage.getItem("price");
+    let price = document.getElementById("details-price");
+    price.innerHTML = p;
+}
+
+function updateGlazing(glazing) {
+    sessionStorage.setItem("option", glazing);
+    var o = sessionStorage.getItem("option");
+    let option = document.getElementById("glaze-dropdown");
+    option.innerHTML = o;
+}
+
+function updateQuantity(qty) {
+    sessionStorage.setItem("option1", qty);
+    var q = sessionStorage.getItem("option1");
+    let option = document.getElementById("qty-dropdown");
+    option.innerHTML = q;
 }
   
 window.onclick = function(event) {
